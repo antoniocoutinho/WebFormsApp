@@ -7,58 +7,64 @@
     </div>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 232px">ID do Aluno</td>
-            <td style="width: 131px">
+            <td colspan="2"><strong>Adicionar Aluno(a)</strong></td>
+            <td style="width: 478px">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 232px">ID do Aluno(a)</td>
+            <td style="width: 177px">
                 <asp:TextBox ID="TextBox1" runat="server" Width="41px"></asp:TextBox>
             </td>
             <td style="width: 478px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 232px">Nota Português</td>
-            <td style="width: 131px">
-                <asp:TextBox ID="TextBox2" runat="server" Width="41px"></asp:TextBox>
+            <td style="width: 232px">Nome Aluno(a)</td>
+            <td style="width: 177px">
+                <asp:TextBox ID="TextBox2" runat="server" Width="166px"></asp:TextBox>
             </td>
             <td style="width: 478px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 232px; height: 22px">Nota Matemática</td>
-            <td style="width: 131px; height: 22px;">
+            <td style="width: 232px; height: 22px">Idade Aluno(a)</td>
+            <td style="width: 177px; height: 22px;">
                 <asp:TextBox ID="TextBox3" runat="server" Width="41px"></asp:TextBox>
             </td>
             <td style="width: 478px; height: 22px"></td>
             <td style="height: 22px"></td>
         </tr>
         <tr>
-            <td style="width: 232px; height: 20px">Nota Ciências</td>
-            <td style="width: 131px; height: 20px;">
-                <asp:TextBox ID="TextBox4" runat="server" Width="41px"></asp:TextBox>
+            <td style="width: 232px; height: 20px">Serie</td>
+            <td style="width: 177px; height: 20px;">
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Selected="True">1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                </asp:DropDownList>
             </td>
             <td style="width: 478px; height: 20px"></td>
             <td style="height: 20px"></td>
         </tr>
         <tr>
-            <td style="width: 232px">Nota Artes</td>
-            <td style="width: 131px">
-                <asp:TextBox ID="TextBox5" runat="server" Width="41px"></asp:TextBox>
-            </td>
+            <td style="width: 232px">&nbsp;</td>
+            <td style="width: 177px">
+                &nbsp;</td>
             <td style="width: 478px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td style="width: 232px">
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar Aluno(a)" />
             </td>
-            <td style="width: 131px">&nbsp;</td>
+            <td style="width: 177px">&nbsp;</td>
             <td style="width: 478px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 232px">&nbsp;</td>
-            <td style="width: 131px">&nbsp;</td>
-            <td style="width: 478px">
-                <asp:GridView ID="GridView1" runat="server" Width="459px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+            <td colspan="4">
+                <asp:GridView ID="GridView1" runat="server" Width="459px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" HorizontalAlign="Center">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
                     <Columns>
                         <asp:BoundField />
@@ -73,8 +79,6 @@
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>

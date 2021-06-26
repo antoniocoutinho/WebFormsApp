@@ -34,14 +34,17 @@ namespace CRUDWebApplication
         protected void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand comm = new SqlCommand("update alunos set Português = '"+ int.Parse(TextBox2.Text) + "', Matemática = '" + int.Parse(TextBox3.Text) + "',  Ciências = '" + int.Parse(TextBox4.Text) + "', Artes = '" + int.Parse(TextBox5.Text) + "' where id = '" + int.Parse(TextBox1.Text)+ "'", con);
+            SqlCommand comm = new SqlCommand("insert into alunos (Id, Nome, Idade, Série) values ('" + int.Parse(TextBox1.Text) + "', '" + TextBox2.Text + "','" + int.Parse(TextBox3.Text)+ "', '" + int.Parse(DropDownList1.Text) + "')", con);
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);
+
+            TextBox1.Text = string.Empty;
+            TextBox2.Text = string.Empty;
+            TextBox3.Text = string.Empty;
+            DropDownList1.SelectedIndex = 0;
+            
             CarregarAlunos();
-
         }
-
-        
     }
 }
