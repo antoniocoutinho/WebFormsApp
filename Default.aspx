@@ -12,14 +12,6 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 232px">ID do Aluno(a)</td>
-            <td style="width: 177px">
-                <asp:TextBox ID="TextBox1" runat="server" Width="41px"></asp:TextBox>
-            </td>
-            <td style="width: 478px">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
             <td style="width: 232px">Nome Aluno(a)</td>
             <td style="width: 177px">
                 <asp:TextBox ID="TextBox2" runat="server" Width="166px"></asp:TextBox>

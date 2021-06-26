@@ -1,0 +1,22 @@
+﻿DROP TABLE IF EXISTS Alunos;
+DROP TABLE IF EXISTS Series;
+
+CREATE TABLE Series (
+    SerieID int NOT NULL,
+    Série int NOT NULL,
+    PRIMARY KEY (SerieID),
+);
+
+CREATE TABLE Alunos (
+    AlunoID int IDENTITY (1, 1) NOT NULL,
+    Nome varchar(50) NOT NULL,
+    Idade int NOT NULL,
+    Série int NOT NULL,
+    PRIMARY KEY (AlunoID),
+    FOREIGN KEY (Série) REFERENCES Series(SerieID)
+);
+
+INSERT INTO Series (SerieID, Série) values 
+(1,1),
+(2,2),
+(3,3)

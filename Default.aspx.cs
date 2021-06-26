@@ -39,7 +39,6 @@ namespace CRUDWebApplication
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);
 
-            TextBox1.Text = string.Empty;
             TextBox2.Text = string.Empty;
             TextBox3.Text = string.Empty;
             DropDownList1.SelectedIndex = 0;
