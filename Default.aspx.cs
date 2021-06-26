@@ -11,7 +11,7 @@ namespace CRUDWebApplication
 {
     public partial class _Default : Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antonio\Documents\projetofinal.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antonio\source\repos\CRUDWebApplication\App_Data\EscolaBD.mdf;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,7 +34,7 @@ namespace CRUDWebApplication
         protected void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand comm = new SqlCommand("insert into alunos (Id, Nome, Idade, Série) values ('" + int.Parse(TextBox1.Text) + "', '" + TextBox2.Text + "','" + int.Parse(TextBox3.Text)+ "', '" + int.Parse(DropDownList1.Text) + "')", con);
+            SqlCommand comm = new SqlCommand("insert into alunos (Nome, Idade, Série) values ('" + TextBox2.Text + "','" + int.Parse(TextBox3.Text)+ "', '" + int.Parse(DropDownList1.Text) + "')", con);
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);
