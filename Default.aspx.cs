@@ -57,5 +57,22 @@ namespace CRUDWebApplication
 
             CarregarAlunos();
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("update alunos set Nome = '" + TextBox6.Text + "', idade = '" + int.Parse(TextBox7.Text) + "' , Série = '" + int.Parse(DropDownList2.Text) + "' where AlunoID = '" + int.Parse(TextBox5.Text) + "'", con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            
+            TextBox5.Text = string.Empty;
+            TextBox6.Text = string.Empty;
+            TextBox7.Text = string.Empty;
+            DropDownList2.SelectedIndex = 0;
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Deletado Com sucesso');", true);
+
+            CarregarAlunos();
+        }
     }
 }
