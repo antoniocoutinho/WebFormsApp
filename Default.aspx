@@ -7,8 +7,8 @@
     </div>
     <table style="width: 100%;">
         <tr>
-            <td colspan="2"><strong>Adicionar Aluno(a)</strong></td>
-            <td style="width: 478px">&nbsp;</td>
+            <td colspan="2"><strong aria-orientation="horizontal">Adicionar Aluno(a)</strong></td>
+            <td style="width: 127px"><strong>Deletar Aluno(a)</strong></td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -16,15 +16,17 @@
             <td style="width: 177px">
                 <asp:TextBox ID="TextBox2" runat="server" Width="166px"></asp:TextBox>
             </td>
-            <td style="width: 478px">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td style="width: 127px">ID do Aluno(a)</td>
+            <td>
+                <asp:TextBox ID="TextBox4" runat="server" Width="41px"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td style="width: 232px; height: 22px">Idade Aluno(a)</td>
             <td style="width: 177px; height: 22px;">
                 <asp:TextBox ID="TextBox3" runat="server" Width="41px"></asp:TextBox>
             </td>
-            <td style="width: 478px; height: 22px"></td>
+            <td style="width: 127px; height: 22px"></td>
             <td style="height: 22px"></td>
         </tr>
         <tr>
@@ -36,14 +38,14 @@
                     <asp:ListItem>3</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td style="width: 478px; height: 20px"></td>
+            <td style="width: 127px; height: 20px"></td>
             <td style="height: 20px"></td>
         </tr>
         <tr>
             <td style="width: 232px">&nbsp;</td>
             <td style="width: 177px">
                 &nbsp;</td>
-            <td style="width: 478px">&nbsp;</td>
+            <td style="width: 127px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -51,7 +53,16 @@
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar Aluno(a)" />
             </td>
             <td style="width: 177px">&nbsp;</td>
-            <td style="width: 478px">&nbsp;</td>
+            <td style="width: 127px">
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Deletar Aluno(a)" Width="124px" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 232px">
+                &nbsp;</td>
+            <td style="width: 177px">&nbsp;</td>
+            <td style="width: 127px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>

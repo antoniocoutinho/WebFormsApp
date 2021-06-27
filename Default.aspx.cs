@@ -45,5 +45,17 @@ namespace CRUDWebApplication
             
             CarregarAlunos();
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("delete from alunos where AlunoID = '" + int.Parse(TextBox4.Text) + "' ", con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            TextBox4.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Deletado Com sucesso');", true);
+
+            CarregarAlunos();
+        }
     }
 }
