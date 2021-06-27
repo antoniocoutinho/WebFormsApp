@@ -70,7 +70,7 @@ namespace CRUDWebApplication
             TextBox7.Text = string.Empty;
             DropDownList2.SelectedIndex = 0;
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Deletado Com sucesso');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Alterado Com sucesso');", true);
 
             CarregarAlunos();
         }

@@ -28,7 +28,7 @@
             <td style="height: 22px"></td>
         </tr>
         <tr>
-            <td style="width: 178px; height: 20px">Serie</td>
+            <td style="width: 178px; height: 20px">Série</td>
             <td style="width: 230px; height: 20px;">
                 <asp:DropDownList ID="DropDownList1" runat="server">
                     <asp:ListItem Selected="True">1</asp:ListItem>
@@ -126,7 +126,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 127px">Serie</td>
+            <td style="width: 127px">Série</td>
             <td>
                 <asp:DropDownList ID="DropDownList2" runat="server">
                     <asp:ListItem Selected="True">1</asp:ListItem>
