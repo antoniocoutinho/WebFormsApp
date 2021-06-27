@@ -1,9 +1,15 @@
-﻿DROP TABLE IF EXISTS Alunos;
+﻿DROP TRIGGER IF EXISTS TGR_ADD_NOTAS_ALUNO;
+DROP TRIGGER IF EXISTS TGR_DELETE_ALUNO;
+
+DROP TABLE IF EXISTS Notas;
+DROP TABLE IF EXISTS Disciplinas;
+DROP TABLE IF EXISTS Alunos;
 DROP TABLE IF EXISTS Series;
+
 
 CREATE TABLE Series (
     SerieID int NOT NULL,
-    Série int NOT NULL,
+    serie int NOT NULL,
     PRIMARY KEY (SerieID),
 );
 
@@ -11,12 +17,68 @@ CREATE TABLE Alunos (
     AlunoID int IDENTITY (1, 1) NOT NULL,
     Nome varchar(50) NOT NULL,
     Idade int NOT NULL,
-    Série int NOT NULL,
+    serie int NOT NULL,
     PRIMARY KEY (AlunoID),
-    FOREIGN KEY (Série) REFERENCES Series(SerieID)
+    FOREIGN KEY (serie) REFERENCES Series(SerieID)
 );
 
-INSERT INTO Series (SerieID, Série) values 
+INSERT INTO Series (SerieID, serie) values 
 (1,1),
 (2,2),
 (3,3)
+
+CREATE TABLE Disciplinas (
+    DisciplinaID int IDENTITY (1, 1) NOT NULL,
+    Disciplina varchar(50),
+    PRIMARY KEY (DisciplinaID),
+);
+
+INSERT INTO Disciplinas (Disciplina) values 
+('Matemática'),
+('Português'),
+('Ciências'),
+('Artes');
+
+CREATE TABLE Notas (
+    NotaID int IDENTITY (1, 1) NOT NULL,
+    AlunoID int NOT NULL,
+    DisciplinaID int NOT NULL,
+    Nota int,
+    PRIMARY KEY (NotaID),
+    FOREIGN KEY (AlunoID) REFERENCES Alunos(AlunoID),
+    FOREIGN KEY (DisciplinaID) REFERENCES Disciplinas(DisciplinaID)
+);
+
+GO
+CREATE TRIGGER TGR_ADD_NOTAS_ALUNO
+ON ALUNOS
+FOR INSERT
+AS
+BEGIN
+    DECLARE
+    @AlunoID  INT
+
+    SELECT @AlunoID = AlunoID FROM INSERTED
+
+    INSERT INTO NOTAS (AlunoID, DisciplinaID, Nota) VALUES(@AlunoID ,1 ,null);
+    INSERT INTO NOTAS (AlunoID, DisciplinaID, Nota) VALUES(@AlunoID ,2 ,null);
+    INSERT INTO NOTAS (AlunoID, DisciplinaID, Nota) VALUES(@AlunoID ,3 ,null);
+    INSERT INTO NOTAS (AlunoID, DisciplinaID, Nota) VALUES(@AlunoID ,4 ,null);
+END
+GO
+
+GO
+CREATE TRIGGER TGR_DELETE_ALUNO
+ON ALUNOS
+INSTEAD OF DELETE
+AS
+BEGIN
+    DECLARE
+    @AlunoID  INT
+
+    SELECT @AlunoID = deleted.AlunoID FROM deleted
+    delete from notas where AlunoID = @AlunoID;
+    delete from Alunos where AlunoID = @AlunoID;
+
+END
+GO

@@ -96,7 +96,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 127px"><strong>Editar Aluno(a)</strong></td>
+            <td style="width: 127px"><strong>Editar perfil do Aluno(a)</strong></td>
             <td>&nbsp;</td>
             <td style="width: 127px">&nbsp;</td>
             <td>&nbsp;</td>
@@ -150,10 +150,6 @@
             <td>&nbsp;</td>
             <td style="width: 127px">&nbsp;</td>
             <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="4" style="height: 20px">
-                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="4" style="height: 20px">

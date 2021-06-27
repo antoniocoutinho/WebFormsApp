@@ -23,7 +23,7 @@ namespace CRUDWebApplication
 
         void CarregarAlunos()
         {
-            SqlCommand comm = new SqlCommand("select * from alunos", con);
+            SqlCommand comm = new SqlCommand("select a.alunoid 'ID do Aluno(a)', a.nome 'Nome', a.idade 'Idade', a.serie 'Série' from alunos a", con);
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -34,7 +34,7 @@ namespace CRUDWebApplication
         protected void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand comm = new SqlCommand("insert into alunos (Nome, Idade, Série) values ('" + TextBox2.Text + "','" + int.Parse(TextBox3.Text)+ "', '" + int.Parse(DropDownList1.Text) + "')", con);
+            SqlCommand comm = new SqlCommand("insert into alunos (nome, idade, serie) values ('" + TextBox2.Text + "','" + int.Parse(TextBox3.Text)+ "', '" + int.Parse(DropDownList1.Text) + "')", con);
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);
@@ -61,7 +61,7 @@ namespace CRUDWebApplication
         protected void Button3_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand comm = new SqlCommand("update alunos set Nome = '" + TextBox6.Text + "', idade = '" + int.Parse(TextBox7.Text) + "' , Série = '" + int.Parse(DropDownList2.Text) + "' where AlunoID = '" + int.Parse(TextBox5.Text) + "'", con);
+            SqlCommand comm = new SqlCommand("update alunos set Nome = '" + TextBox6.Text + "', idade = '" + int.Parse(TextBox7.Text) + "' , serie = '" + int.Parse(DropDownList2.Text) + "' where AlunoID = '" + int.Parse(TextBox5.Text) + "'", con);
             comm.ExecuteNonQuery();
             con.Close();
             
