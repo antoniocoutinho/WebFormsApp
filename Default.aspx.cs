@@ -11,7 +11,7 @@ namespace CRUDWebApplication
 {
     public partial class _Default : Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antonio\Documents\projetofinal.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antonio\source\repos\CRUDWebApplication\App_Data\AlunosBD.mdf;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,7 +23,7 @@ namespace CRUDWebApplication
 
         void CarregarAlunos()
         {
-            SqlCommand comm = new SqlCommand("select * from alunos", con);
+            SqlCommand comm = new SqlCommand("select a.alunoid 'Id Aluno', a.nome 'Nome', a.idade 'Idade', a.serie 'Série', a.portugues 'Português', a.matematica 'Matemática', a.ciencias 'Ciências', a.artes 'Artes' from alunos a", con);
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -34,7 +34,7 @@ namespace CRUDWebApplication
         protected void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand comm = new SqlCommand("update alunos set Português = '"+ int.Parse(TextBox2.Text) + "', Matemática = '" + int.Parse(TextBox3.Text) + "',  Ciências = '" + int.Parse(TextBox4.Text) + "', Artes = '" + int.Parse(TextBox5.Text) + "' where id = '" + int.Parse(TextBox1.Text)+ "'", con);
+            SqlCommand comm = new SqlCommand("insert into alunos (nome, idade, serie, portugues, matematica, ciencias, artes) values ('" + TextBox6.Text + "', '" + int.Parse(TextBox7.Text) + "', '" + int.Parse(TextBox8.Text) + "', '" + int.Parse(TextBox2.Text) + "', '" + int.Parse(TextBox3.Text) + "', '" + int.Parse(TextBox4.Text) + "', '" + int.Parse(TextBox5.Text) + "')", con);
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);

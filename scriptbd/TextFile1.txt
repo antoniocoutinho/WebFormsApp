@@ -1,0 +1,13 @@
+﻿DROP TABLE IF EXISTS Alunos;
+
+CREATE TABLE Alunos (
+    AlunoID int IDENTITY (1, 1) NOT NULL,
+    Nome varchar(50) NOT NULL,
+    Idade int NOT NULL,
+    serie int NOT NULL,
+    portugues int,
+    matematica int,
+    ciencias int,
+    artes int,
+ 
+);
