@@ -23,7 +23,7 @@ namespace CRUDWebApplication
 
         void CarregarAlunos()
         {
-            SqlCommand comm = new SqlCommand("select a.alunoid 'Id Aluno', a.nome 'Nome', a.idade 'Idade', a.serie 'Série', a.portugues 'Português', a.matematica 'Matemática', a.ciencias 'Ciências', a.artes 'Artes' from alunos a", con);
+            SqlCommand comm = new SqlCommand("select * from alunos", con);
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
