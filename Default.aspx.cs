@@ -42,6 +42,16 @@ namespace CRUDWebApplication
 
         }
 
-        
+        protected void linkDelete_Click(object sender, EventArgs e)
+        {
+            int alunoID = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            
+            con.Open();
+            SqlCommand comm = new SqlCommand("delete from alunos where alunoid = '"+ alunoID +"' ", con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Aluno deletado com sucesso');", true);
+            CarregarAlunos();
+        }
     }
 }

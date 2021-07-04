@@ -72,7 +72,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" Width="459px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" style="margin-left: 0px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  Width="459px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" style="margin-left: 0px">
                     <AlternatingRowStyle BackColor="#CCCCCC"  />
                     <Columns>
                         <asp:BoundField DataField="AlunoID" HeaderText="ID do aluno"/>
@@ -83,6 +83,11 @@
                         <asp:BoundField DataField="matematica" HeaderText="Nota Matemática"/>
                         <asp:BoundField DataField="ciencias" HeaderText="Nota Ciências"/>
                         <asp:BoundField DataField="artes" HeaderText="Nota Artes"/>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="linkDelete" Text="Deletar" runat="server" CommandArgument='<%# Eval("AlunoID") %>' OnClick="linkDelete_Click" ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="#CCCCCC" />
                     <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
