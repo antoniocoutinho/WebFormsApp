@@ -30,6 +30,16 @@ namespace CRUDWebApplication
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
+        void LimparCampos()
+        {
+            TextBox6.Text = string.Empty;
+            TextBox7.Text = string.Empty;
+            TextBox8.Text = string.Empty;
+            TextBox2.Text = string.Empty;
+            TextBox3.Text = string.Empty;
+            TextBox4.Text = string.Empty;
+            TextBox5.Text = string.Empty;
+        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -38,6 +48,7 @@ namespace CRUDWebApplication
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Adicionado Com sucesso');", true);
+            LimparCampos();
             CarregarAlunos();
 
         }
@@ -51,6 +62,7 @@ namespace CRUDWebApplication
             comm.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Aluno deletado com sucesso');", true);
+            LimparCampos();
             CarregarAlunos();
         }
     }
